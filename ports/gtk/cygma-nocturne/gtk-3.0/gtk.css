@@ -1,0 +1,17 @@
+/* Cygma Nocturne; GTK theme, not a libadwaita override. */
+@define-color theme_bg_color #1C1D2E;
+@define-color theme_fg_color #F2F1F9;
+@define-color theme_base_color #12131E;
+@define-color theme_text_color #F2F1F9;
+@define-color theme_selected_bg_color #97E0C2;
+@define-color theme_selected_fg_color #102820;
+@define-color borders #8E8AA6;
+@define-color error_color #F4ABB8;
+@define-color warning_color #E6C68C;
+@define-color success_color #A7D599;
+window, dialog, .background { background-color: @theme_bg_color; color: @theme_fg_color; }
+entry, textview, textview text { background-color: @theme_base_color; color: @theme_text_color; border: 1px solid @borders; }
+button, combobox button { background-image: none; background-color: @theme_bg_color; color: @theme_fg_color; border: 1px solid @borders; border-radius: 6px; }
+button:hover, button:active, button.suggested-action, selection { background-color: @theme_selected_bg_color; color: @theme_selected_fg_color; }
+*:focus { outline: 2px solid @theme_selected_bg_color; outline-offset: 2px; }
+label.error { color: @error_color; } label.warning { color: @warning_color; } label.success { color: @success_color; }

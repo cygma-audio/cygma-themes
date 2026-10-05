@@ -1,0 +1,345 @@
+{
+  "$extensions": {
+    "audio.cygma": {
+      "name": "Ember",
+      "appearance": "dark",
+      "version": "0.1.0"
+    }
+  },
+  "$description": "Warm graphite, soft off-white and a clear apricot-orange signal. The primary Cygma Audio and Tessel expression.",
+  "base": {
+    "$type": "color",
+    "background": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.09019607843137255,
+          0.08627450980392157,
+          0.08235294117647059
+        ],
+        "alpha": 1
+      }
+    },
+    "surface": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.12941176470588237,
+          0.12156862745098039,
+          0.11372549019607843
+        ],
+        "alpha": 1
+      }
+    },
+    "elevated": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.16862745098039217,
+          0.1568627450980392,
+          0.1450980392156863
+        ],
+        "alpha": 1
+      }
+    },
+    "text": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9568627450980393,
+          0.9333333333333333,
+          0.9058823529411765
+        ],
+        "alpha": 1
+      }
+    },
+    "muted": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.7490196078431373,
+          0.7098039215686275,
+          0.6627450980392157
+        ],
+        "alpha": 1
+      }
+    },
+    "accent": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1.0,
+          0.6745098039215687,
+          0.4
+        ],
+        "alpha": 1
+      }
+    },
+    "on_accent": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.16862745098039217,
+          0.08627450980392157,
+          0.023529411764705882
+        ],
+        "alpha": 1
+      }
+    },
+    "secondary": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.8274509803921568,
+          0.7686274509803922,
+          0.6509803921568628
+        ],
+        "alpha": 1
+      }
+    },
+    "border": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.27058823529411763,
+          0.25098039215686274,
+          0.23137254901960785
+        ],
+        "alpha": 1
+      }
+    },
+    "control_border": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.615686274509804,
+          0.5647058823529412,
+          0.5098039215686274
+        ],
+        "alpha": 1
+      }
+    },
+    "success": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.6784313725490196,
+          0.8196078431372549,
+          0.611764705882353
+        ],
+        "alpha": 1
+      }
+    },
+    "warning": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9568627450980393,
+          0.796078431372549,
+          0.47058823529411764
+        ],
+        "alpha": 1
+      }
+    },
+    "error": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1.0,
+          0.6705882352941176,
+          0.6274509803921569
+        ],
+        "alpha": 1
+      }
+    },
+    "info": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.6509803921568628,
+          0.796078431372549,
+          0.9098039215686274
+        ],
+        "alpha": 1
+      }
+    },
+    "violet": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.8313725490196079,
+          0.7254901960784313,
+          0.9176470588235294
+        ],
+        "alpha": 1
+      }
+    },
+    "rose": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9333333333333333,
+          0.7019607843137254,
+          0.796078431372549
+        ],
+        "alpha": 1
+      }
+    }
+  },
+  "surface": {
+    "$type": "color",
+    "canvas": {
+      "$value": "{base.background}"
+    },
+    "panel": {
+      "$value": "{base.surface}"
+    },
+    "raised": {
+      "$value": "{base.elevated}"
+    },
+    "hover": {
+      "$value": "{base.elevated}"
+    },
+    "selection": {
+      "$value": "{base.elevated}"
+    }
+  },
+  "text": {
+    "$type": "color",
+    "primary": {
+      "$value": "{base.text}"
+    },
+    "secondary": {
+      "$value": "{base.muted}"
+    },
+    "muted": {
+      "$value": "{base.muted}"
+    },
+    "selected": {
+      "$value": "{base.text}"
+    },
+    "inverse": {
+      "$value": "{base.on_accent}"
+    }
+  },
+  "action": {
+    "$type": "color",
+    "primary": {
+      "$value": "{base.accent}"
+    },
+    "hover": {
+      "$value": "{base.accent}"
+    },
+    "onPrimary": {
+      "$value": "{base.on_accent}"
+    }
+  },
+  "border": {
+    "$type": "color",
+    "subtle": {
+      "$value": "{base.border}"
+    },
+    "control": {
+      "$value": "{base.control_border}"
+    },
+    "focus": {
+      "$value": "{base.accent}"
+    }
+  },
+  "state": {
+    "$type": "color",
+    "success": {
+      "$value": "{base.success}"
+    },
+    "warning": {
+      "$value": "{base.warning}"
+    },
+    "error": {
+      "$value": "{base.error}"
+    },
+    "info": {
+      "$value": "{base.info}"
+    }
+  },
+  "syntax": {
+    "$type": "color",
+    "keyword": {
+      "$value": "{base.violet}"
+    },
+    "string": {
+      "$value": "{base.success}"
+    },
+    "function": {
+      "$value": "{base.accent}"
+    },
+    "type": {
+      "$value": "{base.info}"
+    },
+    "number": {
+      "$value": "{base.rose}"
+    },
+    "comment": {
+      "$value": "{base.muted}"
+    },
+    "variable": {
+      "$value": "{base.text}"
+    },
+    "operator": {
+      "$value": "{base.secondary}"
+    },
+    "constant": {
+      "$value": "{base.warning}"
+    }
+  },
+  "terminal": {
+    "$type": "color",
+    "ansi0": {
+      "$value": "{base.muted}"
+    },
+    "ansi1": {
+      "$value": "{base.error}"
+    },
+    "ansi2": {
+      "$value": "{base.success}"
+    },
+    "ansi3": {
+      "$value": "{base.warning}"
+    },
+    "ansi4": {
+      "$value": "{base.info}"
+    },
+    "ansi5": {
+      "$value": "{base.violet}"
+    },
+    "ansi6": {
+      "$value": "{base.secondary}"
+    },
+    "ansi7": {
+      "$value": "{base.text}"
+    },
+    "ansi8": {
+      "$value": "{base.muted}"
+    },
+    "ansi9": {
+      "$value": "{base.error}"
+    },
+    "ansi10": {
+      "$value": "{base.success}"
+    },
+    "ansi11": {
+      "$value": "{base.warning}"
+    },
+    "ansi12": {
+      "$value": "{base.info}"
+    },
+    "ansi13": {
+      "$value": "{base.rose}"
+    },
+    "ansi14": {
+      "$value": "{base.accent}"
+    },
+    "ansi15": {
+      "$value": "{base.text}"
+    }
+  }
+}

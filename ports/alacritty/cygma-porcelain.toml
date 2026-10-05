@@ -1,0 +1,33 @@
+# Cygma Porcelain
+
+[colors.primary]
+background = "#F6F2EB"
+foreground = "#26211D"
+
+[colors.cursor]
+text = "#FFF8F0"
+cursor = "#9C3D16"
+
+[colors.selection]
+text = "#26211D"
+background = "#EBE4D9"
+
+[colors.normal]
+black = "#655C52"
+red = "#A33631"
+green = "#386036"
+yellow = "#795004"
+blue = "#245A82"
+magenta = "#754391"
+cyan = "#6D543A"
+white = "#26211D"
+
+[colors.bright]
+black = "#655C52"
+red = "#A33631"
+green = "#386036"
+yellow = "#795004"
+blue = "#245A82"
+magenta = "#964767"
+cyan = "#9C3D16"
+white = "#26211D"

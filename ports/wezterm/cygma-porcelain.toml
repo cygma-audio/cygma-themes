@@ -1,0 +1,14 @@
+[colors]
+foreground = "#26211D"
+background = "#F6F2EB"
+cursor_bg = "#9C3D16"
+cursor_border = "#9C3D16"
+cursor_fg = "#FFF8F0"
+selection_bg = "#EBE4D9"
+selection_fg = "#26211D"
+ansi = ["#655C52", "#A33631", "#386036", "#795004", "#245A82", "#754391", "#6D543A", "#26211D"]
+brights = ["#655C52", "#A33631", "#386036", "#795004", "#245A82", "#964767", "#9C3D16", "#26211D"]
+
+[metadata]
+name = "Cygma Porcelain"
+author = "Cygma Audio"

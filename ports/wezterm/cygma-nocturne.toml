@@ -1,0 +1,14 @@
+[colors]
+foreground = "#F2F1F9"
+background = "#12131E"
+cursor_bg = "#97E0C2"
+cursor_border = "#97E0C2"
+cursor_fg = "#102820"
+selection_bg = "#27283C"
+selection_fg = "#F2F1F9"
+ansi = ["#B6B5CA", "#F4ABB8", "#A7D599", "#E6C68C", "#ADC9F2", "#C6B7F4", "#C6B7F4", "#F2F1F9"]
+brights = ["#B6B5CA", "#F4ABB8", "#A7D599", "#E6C68C", "#ADC9F2", "#E8B2D5", "#97E0C2", "#F2F1F9"]
+
+[metadata]
+name = "Cygma Nocturne"
+author = "Cygma Audio"

@@ -1,0 +1,14 @@
+[colors]
+foreground = "#F4EEE7"
+background = "#171615"
+cursor_bg = "#FFAC66"
+cursor_border = "#FFAC66"
+cursor_fg = "#2B1606"
+selection_bg = "#2B2825"
+selection_fg = "#F4EEE7"
+ansi = ["#BFB5A9", "#FFABA0", "#ADD19C", "#F4CB78", "#A6CBE8", "#D4B9EA", "#D3C4A6", "#F4EEE7"]
+brights = ["#BFB5A9", "#FFABA0", "#ADD19C", "#F4CB78", "#A6CBE8", "#EEB3CB", "#FFAC66", "#F4EEE7"]
+
+[metadata]
+name = "Cygma Ember"
+author = "Cygma Audio"

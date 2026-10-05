@@ -1,0 +1,33 @@
+# Cygma Nocturne
+
+[colors.primary]
+background = "#12131E"
+foreground = "#F2F1F9"
+
+[colors.cursor]
+text = "#102820"
+cursor = "#97E0C2"
+
+[colors.selection]
+text = "#F2F1F9"
+background = "#27283C"
+
+[colors.normal]
+black = "#B6B5CA"
+red = "#F4ABB8"
+green = "#A7D599"
+yellow = "#E6C68C"
+blue = "#ADC9F2"
+magenta = "#C6B7F4"
+cyan = "#C6B7F4"
+white = "#F2F1F9"
+
+[colors.bright]
+black = "#B6B5CA"
+red = "#F4ABB8"
+green = "#A7D599"
+yellow = "#E6C68C"
+blue = "#ADC9F2"
+magenta = "#E8B2D5"
+cyan = "#97E0C2"
+white = "#F2F1F9"

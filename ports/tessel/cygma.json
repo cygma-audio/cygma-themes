@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "themes": {
+    "ember": {
+      "name": "Cygma Ember",
+      "frame": "#171615",
+      "panel": "#211F1D",
+      "control": "#2B2825",
+      "plot": "#171615",
+      "border": "#45403B",
+      "text": "#F4EEE7",
+      "muted": "#BFB5A9",
+      "quiet": "#BFB5A9",
+      "accent": "#FFAC66",
+      "highlight": "#D3C4A6",
+      "cyan": "#A6CBE8",
+      "mint": "#ADD19C",
+      "amber": "#F4CB78",
+      "error": "#FFABA0",
+      "on_accent": "#2B1606",
+      "control_border": "#9D9082"
+    },
+    "porcelain": {
+      "name": "Cygma Porcelain",
+      "frame": "#F6F2EB",
+      "panel": "#FFFDF8",
+      "control": "#EBE4D9",
+      "plot": "#F6F2EB",
+      "border": "#D4C8BA",
+      "text": "#26211D",
+      "muted": "#655C52",
+      "quiet": "#655C52",
+      "accent": "#9C3D16",
+      "highlight": "#6D543A",
+      "cyan": "#245A82",
+      "mint": "#386036",
+      "amber": "#795004",
+      "error": "#A33631",
+      "on_accent": "#FFF8F0",
+      "control_border": "#817365"
+    },
+    "nocturne": {
+      "name": "Cygma Nocturne",
+      "frame": "#12131E",
+      "panel": "#1C1D2E",
+      "control": "#27283C",
+      "plot": "#12131E",
+      "border": "#424158",
+      "text": "#F2F1F9",
+      "muted": "#B6B5CA",
+      "quiet": "#B6B5CA",
+      "accent": "#97E0C2",
+      "highlight": "#C6B7F4",
+      "cyan": "#ADC9F2",
+      "mint": "#A7D599",
+      "amber": "#E6C68C",
+      "error": "#F4ABB8",
+      "on_accent": "#102820",
+      "control_border": "#8E8AA6"
+    }
+  }
+}

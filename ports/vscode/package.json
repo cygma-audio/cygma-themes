@@ -1,0 +1,33 @@
+{
+  "name": "cygma-themes",
+  "displayName": "Cygma Themes",
+  "description": "Ember, Porcelain and Nocturne colour themes by Cygma Audio.",
+  "version": "0.1.0",
+  "publisher": "cygma-audio",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "license": "MIT",
+  "contributes": {
+    "themes": [
+      {
+        "label": "Cygma Ember",
+        "uiTheme": "vs-dark",
+        "path": "./themes/cygma-ember.json"
+      },
+      {
+        "label": "Cygma Porcelain",
+        "uiTheme": "vs",
+        "path": "./themes/cygma-porcelain.json"
+      },
+      {
+        "label": "Cygma Nocturne",
+        "uiTheme": "vs-dark",
+        "path": "./themes/cygma-nocturne.json"
+      }
+    ]
+  }
+}

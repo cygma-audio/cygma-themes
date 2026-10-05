@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+node_modules/
+.cache/
+.site-preview/
+releases/
+dist/
+site/downloads/cygma-themes.zip
+*.log

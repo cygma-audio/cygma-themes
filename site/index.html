@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en" data-theme="ember">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#171513">
+  <meta name="description" content="Cygma Themes: three considered colour palettes for your editor, terminal and desktop. Explore Ember, Porcelain and Nocturne.">
+  <title>Cygma Themes — Make room for focus.</title>
+  <link rel="icon" href="assets/cygma-symbol.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/Inter.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header shell">
+    <a class="brand" href="#" aria-label="Cygma Themes home">
+      <img src="assets/cygma-symbol.svg" alt="" width="30" height="30">
+      <span>cygma<span class="brand-divider">/</span><span class="brand-product">themes</span></span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#flavours">Flavours</a>
+      <a href="#palette">Palette</a>
+      <a href="#install">Install <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="small-mark" aria-hidden="true"></span> A little less noise.</p>
+        <h1 id="hero-title">Make room<br>for <span>focus.</span></h1>
+        <p class="hero-description">Considered colour for the places you think.<br class="desktop-break"> Three flavours. One familiar feeling.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#flavours">Find your flavour <span aria-hidden="true">↓</span></a>
+          <a class="text-link" href="downloads/cygma-themes.zip" download>Download the collection <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-footnote"><span aria-hidden="true">◌</span> For your editor, terminal &amp; desktop</div>
+      </div>
+
+      <div class="workbench" aria-label="Live theme preview">
+        <div class="workbench-toolbar">
+          <div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="preview-tabs" role="tablist" aria-label="Preview type">
+            <button id="tab-code" role="tab" aria-selected="true" aria-controls="preview-code" tabindex="0">Code</button>
+            <button id="tab-terminal" role="tab" aria-selected="false" aria-controls="preview-terminal" tabindex="-1">Terminal</button>
+            <button id="tab-interface" role="tab" aria-selected="false" aria-controls="preview-interface" tabindex="-1">Interface</button>
+          </div>
+          <span class="preview-toolbar-symbol" aria-hidden="true">⌘</span>
+        </div>
+
+        <div class="preview-panel code-panel" id="preview-code" role="tabpanel" aria-labelledby="tab-code" tabindex="0">
+          <div class="editor-sidebar" aria-hidden="true">
+            <span class="sidebar-heading">EXPLORER</span>
+            <span class="file-folder">⌄ &nbsp; a-quiet-place</span>
+            <span class="file-item">▱ &nbsp; readme.md</span>
+            <span class="file-item file-active"><span class="ts-mark">TS</span> &nbsp; workspace.ts</span>
+            <span class="file-item">⌘ &nbsp; settings.json</span>
+            <span class="sidebar-bottom">Made to feel<br>like home.</span>
+          </div>
+          <div class="editor-main">
+            <div class="editor-file"><span class="ts-mark">TS</span> workspace.ts <span aria-hidden="true">×</span></div>
+            <div class="code-lines" aria-label="An illustrative TypeScript workspace configuration">
+              <div><span class="line-number" aria-hidden="true">1</span><code><span class="syn-comment">// A little space to think.</span></code></div>
+              <div><span class="line-number" aria-hidden="true">2</span><code><span class="syn-keyword">import</span> { <span class="syn-function">createWorkspace</span> } <span class="syn-keyword">from</span> <span class="syn-string">'./studio'</span>;</code></div>
+              <div><span class="line-number" aria-hidden="true">3</span><code>&nbsp;</code></div>
+              <div><span class="line-number" aria-hidden="true">4</span><code><span class="syn-keyword">type</span> <span class="syn-type">Mood</span> = <span class="syn-string">'focused'</span> | <span class="syn-string">'curious'</span>;</code></div>
+              <div><span class="line-number" aria-hidden="true">5</span><code>&nbsp;</code></div>
+              <div><span class="line-number" aria-hidden="true">6</span><code><span class="syn-keyword">const</span> workspace = <span class="syn-function">createWorkspace</span>({</code></div>
+              <div><span class="line-number" aria-hidden="true">7</span><code>  theme: <span class="syn-string">'<span data-current-slug>ember</span>'</span>,</code></div>
+              <div><span class="line-number" aria-hidden="true">8</span><code>  mood: <span class="syn-string">'focused'</span> <span class="syn-keyword">as</span> <span class="syn-type">Mood</span>,</code></div>
+              <div><span class="line-number" aria-hidden="true">9</span><code>  distractions: <span class="syn-number">0</span>,</code></div>
+              <div><span class="line-number" aria-hidden="true">10</span><code>  possibilities: <span class="syn-constant">Infinity</span></code></div>
+              <div><span class="line-number" aria-hidden="true">11</span><code>});</code></div>
+              <div><span class="line-number" aria-hidden="true">12</span><code>&nbsp;</code></div>
+              <div class="active-code-line"><span class="line-number" aria-hidden="true">13</span><code>workspace.<span class="syn-function">begin</span>();<span class="code-caret" aria-hidden="true"></span></code></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="preview-panel terminal-panel" id="preview-terminal" role="tabpanel" aria-labelledby="tab-terminal" tabindex="0" hidden>
+          <div class="terminal-location">~/studio/a-quiet-place <span>zsh</span></div>
+          <div class="terminal-content">
+            <p><span class="terminal-prompt">❯</span> git switch feature/quiet-mornings</p>
+            <p class="terminal-muted">Switched to branch 'feature/quiet-mornings'</p>
+            <p><span class="terminal-prompt">❯</span> npm test</p>
+            <p class="terminal-muted">&gt; a-quiet-place / test</p>
+            <div class="terminal-results"><p><span class="terminal-success">✓</span> space to think <span class="terminal-muted">2ms</span></p><p><span class="terminal-success">✓</span> room to create <span class="terminal-muted">1ms</span></p><p><span class="terminal-success">✓</span> a familiar feeling <span class="terminal-muted">1ms</span></p></div>
+            <p><span class="terminal-success">3 passed</span> <span class="terminal-muted">/ a good place to begin.</span></p>
+            <p class="terminal-last"><span class="terminal-prompt">❯</span> <span class="code-caret" aria-hidden="true"></span></p>
+          </div>
+        </div>
+
+        <div class="preview-panel interface-panel" id="preview-interface" role="tabpanel" aria-labelledby="tab-interface" tabindex="0" hidden>
+          <div class="interface-sidebar" aria-hidden="true"><span class="interface-avatar">s.</span><span>⌂</span><span class="interface-selected">▦</span><span>☷</span><span class="interface-sidebar-last">⚙</span></div>
+          <div class="interface-main">
+            <div class="interface-breadcrumb">Studio <span>/</span> Overview <span class="interface-user">J</span></div>
+            <div class="interface-heading"><div><span class="eyebrow">YOUR SPACE</span><h3>A fresh perspective.</h3></div><span class="demo-button">＋ New idea</span></div>
+            <div class="interface-stats"><div><span>In progress</span><strong>04 <i class="tiny-status"></i></strong></div><div><span>Ideas captured</span><strong>12 <span class="stat-small">this week</span></strong></div></div>
+            <div class="interface-task"><span class="task-check" aria-hidden="true">✓</span><span>Find a little clarity</span><span class="status-pill success">Complete</span></div>
+            <div class="interface-task"><span class="task-check empty" aria-hidden="true"></span><span>Make something meaningful</span><span class="status-pill warning">In progress</span></div>
+            <div class="interface-note"><span aria-hidden="true">✳</span><span>Good things start with a little space.</span></div>
+          </div>
+        </div>
+        <div class="workbench-status"><span><span class="branch-icon" aria-hidden="true">⑂</span> main <span class="status-count">0 errors &nbsp; 0 warnings</span></span><span><span data-current-name>Ember</span> <span class="status-dot" aria-hidden="true"></span></span></div>
+        <div class="workbench-caption"><span>YOUR NEXT FAVOURITE WORKSPACE</span><span>Illustrative preview <span aria-hidden="true">↗</span></span></div>
+      </div>
+    </section>
+
+    <section class="flavours-section shell" id="flavours" aria-labelledby="flavours-title">
+      <div class="section-topline"><h2 id="flavours-title">A different light. The same language.</h2><span class="section-index">01 / THE FLAVOURS</span></div>
+      <div class="flavour-options" role="group" aria-label="Choose a theme flavour">
+        <button class="flavour-card" data-flavour="ember" aria-pressed="true"><span class="flavour-meta"><span>01</span><span class="selection-indicator" aria-hidden="true">✓</span></span><span class="flavour-title">Ember <span>Dark &amp; warm</span></span><span class="flavour-description">The warmth of a late-night idea.</span><span class="flavour-colours ember-colours" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="flavour-footer"><span>Settle into the glow</span><span aria-hidden="true">↗</span></span></button>
+        <button class="flavour-card" data-flavour="porcelain" aria-pressed="false"><span class="flavour-meta"><span>02</span><span class="selection-indicator" aria-hidden="true">✓</span></span><span class="flavour-title">Porcelain <span>Light &amp; grounded</span></span><span class="flavour-description">A clean page. A softer kind of daylight.</span><span class="flavour-colours porcelain-colours" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="flavour-footer"><span>Let a little light in</span><span aria-hidden="true">↗</span></span></button>
+        <button class="flavour-card" data-flavour="nocturne" aria-pressed="false"><span class="flavour-meta"><span>03</span><span class="selection-indicator" aria-hidden="true">✓</span></span><span class="flavour-title">Nocturne <span>Dark &amp; cool</span></span><span class="flavour-description">Deep ink. A fresh spark of possibility.</span><span class="flavour-colours nocturne-colours" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="flavour-footer"><span>Follow the quiet hours</span><span aria-hidden="true">↗</span></span></button>
+      </div>
+    </section>
+
+    <section class="palette-section shell" id="palette" aria-labelledby="palette-title">
+      <div class="section-index">02 / COLOUR WITH INTENT</div>
+      <div class="palette-intro"><h2 id="palette-title">Every colour<br>has a purpose.</h2><div><p>Surfaces that sit back. Syntax that speaks clearly.<br>One shared set of roles, wherever you work.</p><p class="muted">Explore <strong data-current-name>Ember</strong>. Select a swatch to copy its hex value.</p></div></div>
+      <div class="palette-group-bar"><h3>Essential palette</h3><a class="text-link token-download" href="downloads/ember.tokens.json" download>Download tokens <span aria-hidden="true">↓</span></a></div>
+      <div id="swatches" class="swatch-grid" aria-label="Theme colour palette"><p class="loading-message">Loading the colour palette…</p></div>
+      <div class="contrast-note"><span class="contrast-icon" aria-hidden="true">Aa</span><div><strong>Designed with contrast in mind.</strong><p>Text and interface colour pairs are checked against WCAG contrast thresholds. Read the measured ratios and the scope of these checks.</p></div><a class="text-link" href="downloads/contrast-report.json" download>Contrast data <span aria-hidden="true">↗</span></a></div>
+    </section>
+
+    <section class="install-section" id="install" aria-labelledby="install-title">
+      <div class="shell">
+        <div class="section-index">03 / MAKE YOURSELF AT HOME</div>
+        <div class="install-heading"><div><h2 id="install-title">Your tools.<br>A familiar feeling.</h2><p>Bring <strong data-current-name>Ember</strong> to the places you spend your day.</p></div><label class="os-label" for="platform">Your operating system<select id="platform"><option value="windows">Windows</option><option value="linux">Linux</option></select></label></div>
+        <div class="installation-start"><span class="step-number">1</span><p><a href="downloads/cygma-themes.zip" download>Download the collection <span aria-hidden="true">↓</span></a><span>Extract the ZIP, then open a terminal in the extracted folder.</span></p><span class="archive-type">ZIP / ALL FLAVOURS</span></div>
+        <div class="install-grid" id="install-grid"></div>
+        <div class="install-help"><span class="step-number">2</span><p>The commands install theme files from the extracted collection. Select your Cygma flavour in your app afterwards. Python 3.10+ is required; Windows commands use the included PowerShell wrapper.</p></div>
+        <p class="platform-note" id="platform-note"></p>
+        <noscript><p class="noscript-notice">Enable JavaScript for interactive previews and installation commands. You can still <a href="downloads/cygma-themes.zip" download>download the complete collection</a> and follow its installation guide.</p></noscript>
+      </div>
+    </section>
+
+    <section class="closing shell" aria-label="Download Cygma Themes"><div class="closing-symbol" aria-hidden="true"><img src="assets/cygma-symbol.svg" alt="" width="96" height="96"></div><p>A small change.<br>A space that feels <em>yours.</em></p><a class="button button-primary" href="downloads/cygma-themes.zip" download>Make it your own <span aria-hidden="true">↓</span></a></section>
+  </main>
+  <footer class="site-footer shell"><a class="brand" href="#" aria-label="Cygma Themes home"><img src="assets/cygma-symbol.svg" alt="" width="24" height="24"><span>cygma<span class="brand-divider">/</span><span class="brand-product">themes</span></span></a><p>Considered colour. Room to think.</p><a href="downloads/cygma-themes.zip" download>Download collection <span aria-hidden="true">↗</span></a></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+  <p id="theme-status" class="visually-hidden" role="status" aria-live="polite"></p>
+</body>
+</html>

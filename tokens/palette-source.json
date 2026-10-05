@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "themes": {
+    "ember": {
+      "name": "Ember",
+      "appearance": "dark",
+      "description": "Warm graphite, soft off-white and a clear apricot-orange signal. The primary Cygma Audio and Tessel expression.",
+      "colors": {
+        "background": "#171615",
+        "surface": "#211F1D",
+        "elevated": "#2B2825",
+        "text": "#F4EEE7",
+        "muted": "#BFB5A9",
+        "accent": "#FFAC66",
+        "on_accent": "#2B1606",
+        "secondary": "#D3C4A6",
+        "border": "#45403B",
+        "control_border": "#9D9082",
+        "success": "#ADD19C",
+        "warning": "#F4CB78",
+        "error": "#FFABA0",
+        "info": "#A6CBE8",
+        "violet": "#D4B9EA",
+        "rose": "#EEB3CB"
+      }
+    },
+    "porcelain": {
+      "name": "Porcelain",
+      "appearance": "light",
+      "description": "Warm porcelain, dark umber type and burnt orange. A calm light counterpart with the same material character.",
+      "colors": {
+        "background": "#F6F2EB",
+        "surface": "#FFFDF8",
+        "elevated": "#EBE4D9",
+        "text": "#26211D",
+        "muted": "#655C52",
+        "accent": "#9C3D16",
+        "on_accent": "#FFF8F0",
+        "secondary": "#6D543A",
+        "border": "#D4C8BA",
+        "control_border": "#817365",
+        "success": "#386036",
+        "warning": "#795004",
+        "error": "#A33631",
+        "info": "#245A82",
+        "violet": "#754391",
+        "rose": "#964767"
+      }
+    },
+    "nocturne": {
+      "name": "Nocturne",
+      "appearance": "dark",
+      "description": "Deep violet ink with mint signals and pale lavender detail. An expressive alternate edition of the same restrained system.",
+      "colors": {
+        "background": "#12131E",
+        "surface": "#1C1D2E",
+        "elevated": "#27283C",
+        "text": "#F2F1F9",
+        "muted": "#B6B5CA",
+        "accent": "#97E0C2",
+        "on_accent": "#102820",
+        "secondary": "#C6B7F4",
+        "border": "#424158",
+        "control_border": "#8E8AA6",
+        "success": "#A7D599",
+        "warning": "#E6C68C",
+        "error": "#F4ABB8",
+        "info": "#ADC9F2",
+        "violet": "#C6B7F4",
+        "rose": "#E8B2D5"
+      }
+    }
+  }
+}

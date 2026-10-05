@@ -1,0 +1,33 @@
+# Cygma Ember
+
+[colors.primary]
+background = "#171615"
+foreground = "#F4EEE7"
+
+[colors.cursor]
+text = "#2B1606"
+cursor = "#FFAC66"
+
+[colors.selection]
+text = "#F4EEE7"
+background = "#2B2825"
+
+[colors.normal]
+black = "#BFB5A9"
+red = "#FFABA0"
+green = "#ADD19C"
+yellow = "#F4CB78"
+blue = "#A6CBE8"
+magenta = "#D4B9EA"
+cyan = "#D3C4A6"
+white = "#F4EEE7"
+
+[colors.bright]
+black = "#BFB5A9"
+red = "#FFABA0"
+green = "#ADD19C"
+yellow = "#F4CB78"
+blue = "#A6CBE8"
+magenta = "#EEB3CB"
+cyan = "#FFAC66"
+white = "#F4EEE7"
