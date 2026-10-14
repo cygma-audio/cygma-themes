@@ -2,14 +2,15 @@
 import assert from 'node:assert/strict';
 import { createServer } from 'node:http';
 import { spawn } from 'node:child_process';
-import { access, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import os from 'node:os';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
-const siteRoot = path.join(root, 'site');
+const siteRoot = path.join(root, 'dist');
+const siteBasePath = '/cygma-themes/';
 const artifactRoot = path.join(root, '.site-preview');
 const candidates = [process.env.CYGMA_BROWSER, 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe', 'C:/Program Files/Google/Chrome/Application/chrome.exe', '/usr/bin/chromium', '/usr/bin/chromium-browser', '/usr/bin/google-chrome'].filter(Boolean);
 const browserPath = candidates.find(existsSync);
@@ -17,9 +18,12 @@ assert.ok(browserPath, 'Set CYGMA_BROWSER to a Chromium-family browser executabl
 const types = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.json': 'application/json', '.svg': 'image/svg+xml', '.ttf': 'font/ttf', '.zip': 'application/zip' };
 const server = createServer(async (request, response) => {
   try {
-    const relative = decodeURIComponent(new URL(request.url, 'http://localhost').pathname).replace(/^\/+/, '') || 'index.html';
+    const pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
+    if (!pathname.startsWith(siteBasePath)) throw new Error('Outside project path');
+    const relative = pathname.slice(siteBasePath.length) || 'index.html';
     const full = path.resolve(siteRoot, relative);
-    if (!full.startsWith(`${path.resolve(siteRoot)}${path.sep}`)) throw new Error('Outside site');
+    const resolvedRelative = path.relative(siteRoot, full);
+    if (resolvedRelative === '..' || resolvedRelative.startsWith(`..${path.sep}`) || path.isAbsolute(resolvedRelative)) throw new Error('Outside site');
     const body = await readFile(full);
     response.writeHead(200, { 'Content-Type': types[path.extname(full)] || 'application/octet-stream' });
     response.end(body);
@@ -30,6 +34,7 @@ const server = createServer(async (request, response) => {
 });
 await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
 const origin = `http://127.0.0.1:${server.address().port}`;
+const siteUrl = `${origin}${siteBasePath}`;
 const profileParent = path.resolve(os.tmpdir());
 const profile = await mkdtemp(path.join(profileParent, 'cygma-browser-check-'));
 let browser;
@@ -41,8 +46,22 @@ try {
   const html = await readFile(path.join(siteRoot, 'index.html'), 'utf8');
   const localLinks = [...html.matchAll(/(?:href|src)="([^"#][^"]*)"/g)].map((match) => match[1]).filter((href) => !/^(https?:|data:|mailto:)/.test(href));
   const themes = JSON.parse(await readFile(path.join(siteRoot, 'themes.json'), 'utf8'));
+  localLinks.push('themes.json');
   for (const name of Object.keys(themes.themes)) localLinks.push(`downloads/${name}.tokens.json`);
-  for (const href of new Set(localLinks)) await access(path.resolve(siteRoot, href));
+  for (const href of new Set(localLinks)) {
+    const url = new URL(href, siteUrl);
+    assert.equal(url.origin, origin, `${href}: local resource stays on this site`);
+    assert.ok(url.pathname.startsWith(siteBasePath), `${href}: resolves beneath the GitHub Pages project path`);
+    const relative = decodeURIComponent(url.pathname.slice(siteBasePath.length)) || 'index.html';
+    const expected = await readFile(path.resolve(siteRoot, relative));
+    const response = await fetch(url);
+    assert.equal(response.status, 200, `${href}: generated resource is served successfully`);
+    assert.equal(response.headers.get('content-type'), types[path.extname(relative)] || 'application/octet-stream', `${href}: correct resource type`);
+    assert.deepEqual(Buffer.from(await response.arrayBuffer()), expected, `${href}: served bytes match dist`);
+  }
+  for (const pathname of ['/', '/index.html', '/cygma-themes-other/index.html', '/cygma-themes/%2e%2e/README.md', '/cygma-themes/..%2fREADME.md', '/cygma-themes/..%5cREADME.md']) {
+    assert.equal((await fetch(`${origin}${pathname}`)).status, 404, `${pathname}: requests outside the generated project site are rejected`);
+  }
 
   browser = spawn(browserPath, ['--headless=new', '--disable-gpu', '--no-first-run', '--no-default-browser-check', '--disable-features=msEdgeSidebarV2', '--remote-debugging-port=0', `--user-data-dir=${profile}`, 'about:blank'], { windowsHide: true, stdio: 'ignore' });
   let endpoint;
@@ -60,9 +79,18 @@ try {
   let requestId = 0;
   const pending = new Map();
   const pageErrors = [];
+  const resourceErrors = [];
+  const resourceRequests = new Map();
   socket.addEventListener('message', ({ data }) => {
     const message = JSON.parse(data);
     if (message.method === 'Runtime.exceptionThrown') pageErrors.push(message.params.exceptionDetails.text);
+    if (message.method === 'Network.requestWillBeSent') resourceRequests.set(message.params.requestId, message.params.request.url);
+    if (message.method === 'Network.responseReceived' && message.params.response.status >= 400) {
+      resourceErrors.push(`${message.params.response.status} ${message.params.response.url}`);
+    }
+    if (message.method === 'Network.loadingFailed' && !message.params.canceled) {
+      resourceErrors.push(`${message.params.errorText} ${resourceRequests.get(message.params.requestId) || message.params.requestId}`);
+    }
     if (pending.has(message.id)) {
       const { resolve, reject, timer } = pending.get(message.id);
       pending.delete(message.id);
@@ -118,14 +146,19 @@ try {
     return { count, minimum, failures };
   })()`;
   await cdp('Runtime.enable');
+  await cdp('Network.enable');
   await cdp('Page.enable');
   await cdp('DOM.enable');
   await cdp('CSS.enable');
   await cdp('Emulation.setDeviceMetricsOverride', { width: 1440, height: 1050, deviceScaleFactor: 1, mobile: false });
   await send('Browser.grantPermissions', { origin, permissions: ['clipboardReadWrite', 'clipboardSanitizedWrite'] });
-  await cdp('Page.navigate', { url: origin });
+  await cdp('Page.navigate', { url: siteUrl });
   await evaluate(`new Promise((resolve, reject) => { let n = 0; const t = setInterval(() => { if (document.querySelectorAll('.swatch').length === 16 && document.fonts.status === 'loaded') { clearInterval(t); resolve(true); } else if (++n > 100) { clearInterval(t); reject(new Error('Palette failed to load')); } }, 50); })`);
   assert.equal(await evaluate(`document.documentElement.dataset.theme`), 'ember');
+  assert.equal(await evaluate(`location.pathname`), siteBasePath, 'Generated site loads at the GitHub Pages project path');
+  for (const href of await evaluate(`Array.from(document.querySelectorAll('a[download]'), link => link.href)`)) {
+    assert.ok(href.startsWith(siteUrl), `${href}: browser download link retains the project path`);
+  }
 
   const contrastResults = [];
   for (const [name, theme] of Object.entries(themes.themes)) {
@@ -134,7 +167,7 @@ try {
     assert.equal(await evaluate(`document.querySelectorAll('[data-flavour][aria-pressed="true"]').length`), 1);
     assert.equal(await evaluate(`getComputedStyle(document.documentElement).getPropertyValue('--surface-canvas').trim().toUpperCase()`), theme.tokens['surface.canvas'].toUpperCase());
     assert.equal(await evaluate(`document.querySelector('.swatch-label code').textContent`), theme.tokens['surface.canvas']);
-    assert.ok((await evaluate(`document.querySelector('.token-download').getAttribute('href')`)).endsWith(`${name}.tokens.json`));
+    assert.equal(await evaluate(`document.querySelector('.token-download').href`), `${siteUrl}downloads/${name}.tokens.json`, `${name}: token download retains the project path`);
     assert.ok((await evaluate(`document.querySelector('.install-command').textContent`)).endsWith(`--variant ${name}`));
     for (const tab of ['code', 'terminal', 'interface']) {
       await evaluate(`document.getElementById('tab-${tab}').click()`);
@@ -202,7 +235,13 @@ try {
     }
   }
   assert.deepEqual(pageErrors, [], 'No uncaught browser errors');
-  console.log('PASS: local downloads/assets, generated palette values, all 3 flavours, rendered text contrast >=4.5:1 (3 previews + hover/focus), persistence, keyboard tabs, clipboard, 8 app cards, 2 OS command sets, 390px/320px layouts, no uncaught errors.');
+  assert.deepEqual(resourceErrors, [], 'No failed browser resource requests');
+  const requestedPaths = Array.from(resourceRequests.values()).filter(url => new URL(url).origin === origin).map(url => new URL(url).pathname);
+  assert.ok(requestedPaths.every(pathname => pathname.startsWith(siteBasePath)), 'Browser resource requests retain the GitHub Pages project path');
+  for (const relative of ['index.html', 'app.js', 'style.css', 'tokens.css', 'themes.json', 'assets/Inter.ttf']) {
+    assert.ok(requestedPaths.includes(`${siteBasePath}${relative === 'index.html' ? '' : relative}`), `${relative}: generated resource was requested by the browser`);
+  }
+  console.log('PASS: generated dist site at /cygma-themes/, project-relative downloads/assets and served bytes, server path boundaries, generated palette values, all 3 flavours, rendered text contrast >=4.5:1 (3 previews + hover/focus), persistence, keyboard tabs, clipboard, 8 app cards, 2 OS command sets, 390px/320px layouts, no runtime or resource errors.');
   console.log(`Screenshots: ${artifactRoot}`);
   await send('Browser.close');
 } finally {

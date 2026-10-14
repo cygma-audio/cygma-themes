@@ -2,6 +2,8 @@
 
 Three coordinated colour themes for creative tools, editors and terminals.
 
+[Preview the themes](https://cygma-audio.github.io/cygma-themes/) · [Source on GitHub](https://github.com/cygma-audio/cygma-themes)
+
 | Theme | Appearance | Character |
 | --- | --- | --- |
 | Ember | Dark | Warm graphite, apricot signals, soft ivory text |
@@ -10,7 +12,7 @@ Three coordinated colour themes for creative tools, editors and terminals.
 
 ## Install
 
-Download and extract the complete archive, then open a terminal in its directory. Requires Python 3.10 or newer. Preview destinations before installing:
+Download and extract [the complete collection](https://cygma-audio.github.io/cygma-themes/downloads/cygma-themes.zip), then open a terminal in its directory. Requires Python 3.10 or newer. Preview destinations before installing:
 
 ```powershell
 # Windows PowerShell
@@ -35,7 +37,7 @@ See [installation and removal](docs/INSTALL.md) for native locations, app activa
 - Kitty, Alacritty and WezTerm: native terminal palettes.
 - Neovim: Lua colour schemes and diagnostic highlights.
 - GTK 3/4: a small stylesheet for applications that respect GTK themes; not a complete desktop or libadwaita skin.
-- Tessel: embedded theme data, accessible through its Cygma theme category after compiling the app.
+- Tessel: exported theme data for integration into the app.
 
 The installer targets Windows and Linux. The theme files can be adapted to other systems; those installs are not implemented here. These ports have automated format and installer tests, but have not all been visually tested inside their native applications.
 
@@ -57,7 +59,15 @@ python -m http.server 8080 --directory dist
 
 The package command generates `releases/cygma-themes-0.1.0.zip` and the ready-to-serve `dist/` website. The showcase switches the complete page between flavours, previews code/terminal/interface roles, copies values and provides app-specific installation commands. No analytics or external font service is required.
 
-For browser checks, run `node scripts/test-site.mjs` with Node 22+ and an installed Chromium-family browser (set `CYGMA_BROWSER` if it is outside the detected locations). It checks real text contrast, keyboard tabs, clipboard, persistence and narrow layouts. Screenshots and the computed contrast report go into `.site-preview/`.
+For browser checks, package the site first, then run `node scripts/test-site.mjs` with Node 22+ and an installed Chromium-family browser (set `CYGMA_BROWSER` if it is outside the detected locations). It serves `dist/` beneath `/cygma-themes/` to match GitHub Pages and checks downloads, assets, real text contrast, keyboard tabs, clipboard, persistence and narrow layouts. Screenshots and the computed contrast report go into `.site-preview/`.
+
+## GitHub Pages deployment
+
+The showcase is published at [cygma-audio.github.io/cygma-themes](https://cygma-audio.github.io/cygma-themes/). The [deployment workflow](https://github.com/cygma-audio/cygma-themes/blob/main/.github/workflows/pages.yml) verifies generated themes and contrast, runs the installer and token tests, packages the download archive, and publishes `dist/` on every push to `main`.
+
+In [repository settings](https://github.com/cygma-audio/cygma-themes/settings/pages), set **Pages → Build and deployment → Source** to **GitHub Actions**. To redeploy without a commit, open [Actions](https://github.com/cygma-audio/cygma-themes/actions/workflows/pages.yml), choose **Run workflow**, and select `main`. Deployment is restricted to `main` and uses the `github-pages` environment.
+
+Edit the website in `site/`, then run `python scripts/package.py` to preview the packaged result locally. `dist/` and the ZIP archives are generated during deployment and do not need to be committed. Website assets and downloads use relative paths so they work beneath `/cygma-themes/`.
 
 ## Licensing
 

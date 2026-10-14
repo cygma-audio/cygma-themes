@@ -11,6 +11,14 @@
     "Themes"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cygma-audio/cygma-themes.git"
+  },
+  "homepage": "https://cygma-audio.github.io/cygma-themes/",
+  "bugs": {
+    "url": "https://github.com/cygma-audio/cygma-themes/issues"
+  },
   "contributes": {
     "themes": [
       {

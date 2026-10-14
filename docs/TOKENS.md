@@ -27,7 +27,7 @@ The report covers primary/secondary/muted/selected text, accents, syntax, semant
 
 ## Transparency and motion
 
-Opaque content surfaces preserve the measurements. In Tessel, Cygma themes use bounded tinting and opaque label surfaces instead of animated light underneath small type. Other installed theme families retain their existing glass rendering. Decorative effects must stay behind an opaque text backplate or be composited and retested. Do not reduce label opacity to create hierarchy; use `text.secondary` or `text.muted`.
+Opaque content surfaces preserve the measurements. When integrating the exported tokens into an application, keep text on opaque surfaces. Decorative effects must stay behind an opaque text backplate or be composited and retested. Do not reduce label opacity to create hierarchy; use `text.secondary` or `text.muted`.
 
 Clipping/error feedback must include labels or symbols; colour alone is insufficient. Keyboard operation, names, focus order, zoom, screen-reader semantics and application-specific rendering remain separate accessibility obligations. A palette cannot certify legal or whole-product WCAG conformance.
 

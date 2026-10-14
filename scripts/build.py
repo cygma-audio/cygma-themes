@@ -194,14 +194,17 @@ def generate():
     report=audit(themes)
     outputs['reports/contrast.json']=dumps(report);outputs['site/downloads/contrast-report.json']=dumps(report)
     resolved=dumps({'version':1,'themes':themes})
-    outputs['dist/themes.json']=resolved;outputs['site/themes.json']=resolved
+    outputs['site/themes.json']=resolved
     css='/* Generated from DTCG semantic roles. Never edit compiled files. */\n'
     for slug,theme in themes.items():
         css+=f'[data-theme="{slug}"] {{\n  color-scheme: {theme["appearance"]};\n'
         css+=''.join(f'  --{role.replace(".","-")}: {value};\n' for role,value in theme['tokens'].items())+'}\n'
-    outputs['dist/tokens.css']=css;outputs['site/tokens.css']=css
+    outputs['site/tokens.css']=css
     outputs['ports/vscode/package.json']=dumps({'name':'cygma-themes','displayName':'Cygma Themes','description':'Ember, Porcelain and Nocturne colour themes by Cygma Audio.',
       'version':'0.1.0','publisher':'cygma-audio','engines':{'vscode':'^1.80.0'},'categories':['Themes'],'license':'MIT',
+      'repository':{'type':'git','url':'https://github.com/cygma-audio/cygma-themes.git'},
+      'homepage':'https://cygma-audio.github.io/cygma-themes/',
+      'bugs':{'url':'https://github.com/cygma-audio/cygma-themes/issues'},
       'contributes':{'themes':[{'label':'Cygma '+theme['name'],'uiTheme':'vs' if theme['appearance']=='light' else 'vs-dark','path':f'./themes/cygma-{slug}.json'} for slug,theme in themes.items()]}})
     outputs['ports/vscode/LICENSE']=(ROOT/'LICENSE').read_text(encoding='utf-8')
     schemes=[]

@@ -15,7 +15,7 @@ class TokenTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.outputs = build.generate()
-        cls.themes = json.loads(cls.outputs['dist/themes.json'])['themes']
+        cls.themes = json.loads(cls.outputs['site/themes.json'])['themes']
 
     def test_generated_exports_are_current(self):
         for path, contents in self.outputs.items():

@@ -7,6 +7,11 @@
   <meta name="theme-color" content="#171513">
   <meta name="description" content="Cygma Themes: three considered colour palettes for your editor, terminal and desktop. Explore Ember, Porcelain and Nocturne.">
   <title>Cygma Themes — Make room for focus.</title>
+  <link rel="canonical" href="https://cygma-audio.github.io/cygma-themes/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Cygma Themes — Make room for focus.">
+  <meta property="og:description" content="Ember, Porcelain and Nocturne: coordinated colour themes for editors, terminals and compatible desktop applications.">
+  <meta property="og:url" content="https://cygma-audio.github.io/cygma-themes/">
   <link rel="icon" href="assets/cygma-symbol.svg" type="image/svg+xml">
   <link rel="preload" href="assets/Inter.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="tokens.css">
@@ -16,7 +21,7 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header shell">
-    <a class="brand" href="#" aria-label="Cygma Themes home">
+    <a class="brand" href="./" aria-label="Cygma Themes home">
       <img src="assets/cygma-symbol.svg" alt="" width="30" height="30">
       <span>cygma<span class="brand-divider">/</span><span class="brand-product">themes</span></span>
     </a>
@@ -54,54 +59,54 @@
         <div class="preview-panel code-panel" id="preview-code" role="tabpanel" aria-labelledby="tab-code" tabindex="0">
           <div class="editor-sidebar" aria-hidden="true">
             <span class="sidebar-heading">EXPLORER</span>
-            <span class="file-folder">⌄ &nbsp; a-quiet-place</span>
-            <span class="file-item">▱ &nbsp; readme.md</span>
-            <span class="file-item file-active"><span class="ts-mark">TS</span> &nbsp; workspace.ts</span>
-            <span class="file-item">⌘ &nbsp; settings.json</span>
-            <span class="sidebar-bottom">Made to feel<br>like home.</span>
+            <span class="file-folder">⌄ &nbsp; cygma-themes</span>
+            <span class="file-item">▱ &nbsp; themes.json</span>
+            <span class="file-item file-active"><span class="ts-mark">TS</span> &nbsp; theme.ts</span>
+            <span class="file-item">⌘ &nbsp; tokens.css</span>
+            <span class="sidebar-bottom">Three flavours.<br>Shared tokens.</span>
           </div>
           <div class="editor-main">
-            <div class="editor-file"><span class="ts-mark">TS</span> workspace.ts <span aria-hidden="true">×</span></div>
-            <div class="code-lines" aria-label="An illustrative TypeScript workspace configuration">
-              <div><span class="line-number" aria-hidden="true">1</span><code><span class="syn-comment">// A little space to think.</span></code></div>
-              <div><span class="line-number" aria-hidden="true">2</span><code><span class="syn-keyword">import</span> { <span class="syn-function">createWorkspace</span> } <span class="syn-keyword">from</span> <span class="syn-string">'./studio'</span>;</code></div>
+            <div class="editor-file"><span class="ts-mark">TS</span> theme.ts <span aria-hidden="true">×</span></div>
+            <div class="code-lines" aria-label="An illustrative TypeScript example using Cygma theme tokens">
+              <div><span class="line-number" aria-hidden="true">1</span><code><span class="syn-comment">// Cygma semantic colour tokens.</span></code></div>
+              <div><span class="line-number" aria-hidden="true">2</span><code><span class="syn-keyword">import</span> collection <span class="syn-keyword">from</span> <span class="syn-string">'./themes.json'</span>;</code></div>
               <div><span class="line-number" aria-hidden="true">3</span><code>&nbsp;</code></div>
-              <div><span class="line-number" aria-hidden="true">4</span><code><span class="syn-keyword">type</span> <span class="syn-type">Mood</span> = <span class="syn-string">'focused'</span> | <span class="syn-string">'curious'</span>;</code></div>
-              <div><span class="line-number" aria-hidden="true">5</span><code>&nbsp;</code></div>
-              <div><span class="line-number" aria-hidden="true">6</span><code><span class="syn-keyword">const</span> workspace = <span class="syn-function">createWorkspace</span>({</code></div>
-              <div><span class="line-number" aria-hidden="true">7</span><code>  theme: <span class="syn-string">'<span data-current-slug>ember</span>'</span>,</code></div>
-              <div><span class="line-number" aria-hidden="true">8</span><code>  mood: <span class="syn-string">'focused'</span> <span class="syn-keyword">as</span> <span class="syn-type">Mood</span>,</code></div>
-              <div><span class="line-number" aria-hidden="true">9</span><code>  distractions: <span class="syn-number">0</span>,</code></div>
-              <div><span class="line-number" aria-hidden="true">10</span><code>  possibilities: <span class="syn-constant">Infinity</span></code></div>
-              <div><span class="line-number" aria-hidden="true">11</span><code>});</code></div>
-              <div><span class="line-number" aria-hidden="true">12</span><code>&nbsp;</code></div>
-              <div class="active-code-line"><span class="line-number" aria-hidden="true">13</span><code>workspace.<span class="syn-function">begin</span>();<span class="code-caret" aria-hidden="true"></span></code></div>
+              <div><span class="line-number" aria-hidden="true">4</span><code><span class="syn-keyword">const</span> flavour = <span class="syn-string">'<span data-current-slug>ember</span>'</span>;</code></div>
+              <div><span class="line-number" aria-hidden="true">5</span><code><span class="syn-keyword">const</span> theme = collection.themes[flavour];</code></div>
+              <div><span class="line-number" aria-hidden="true">6</span><code><span class="syn-keyword">const</span> tokens = theme.tokens;</code></div>
+              <div><span class="line-number" aria-hidden="true">7</span><code>&nbsp;</code></div>
+              <div><span class="line-number" aria-hidden="true">8</span><code><span class="syn-keyword">const</span> colours = {</code></div>
+              <div><span class="line-number" aria-hidden="true">9</span><code>  canvas: tokens[<span class="syn-string">'surface.canvas'</span>],</code></div>
+              <div><span class="line-number" aria-hidden="true">10</span><code>  text: tokens[<span class="syn-string">'text.primary'</span>],</code></div>
+              <div><span class="line-number" aria-hidden="true">11</span><code>  accent: tokens[<span class="syn-string">'action.primary'</span>]</code></div>
+              <div><span class="line-number" aria-hidden="true">12</span><code>};</code></div>
+              <div class="active-code-line"><span class="line-number" aria-hidden="true">13</span><code><span class="syn-keyword">export default</span> colours;<span class="code-caret" aria-hidden="true"></span></code></div>
             </div>
           </div>
         </div>
 
         <div class="preview-panel terminal-panel" id="preview-terminal" role="tabpanel" aria-labelledby="tab-terminal" tabindex="0" hidden>
-          <div class="terminal-location">~/studio/a-quiet-place <span>zsh</span></div>
+          <div class="terminal-location">~/cygma-themes <span>bash</span></div>
           <div class="terminal-content">
-            <p><span class="terminal-prompt">❯</span> git switch feature/quiet-mornings</p>
-            <p class="terminal-muted">Switched to branch 'feature/quiet-mornings'</p>
-            <p><span class="terminal-prompt">❯</span> npm test</p>
-            <p class="terminal-muted">&gt; a-quiet-place / test</p>
-            <div class="terminal-results"><p><span class="terminal-success">✓</span> space to think <span class="terminal-muted">2ms</span></p><p><span class="terminal-success">✓</span> room to create <span class="terminal-muted">1ms</span></p><p><span class="terminal-success">✓</span> a familiar feeling <span class="terminal-muted">1ms</span></p></div>
-            <p><span class="terminal-success">3 passed</span> <span class="terminal-muted">/ a good place to begin.</span></p>
+            <p><span class="terminal-prompt">❯</span> python3 scripts/build.py</p>
+            <p class="terminal-muted">Generated token and theme files.</p>
+            <p><span class="terminal-prompt">❯</span> python3 scripts/build.py --check</p>
+            <p class="terminal-muted">Checking palettes and native exports…</p>
+            <div class="terminal-results"><p><span class="terminal-success">✓</span> Ember <span class="terminal-muted">dark &amp; warm</span></p><p><span class="terminal-success">✓</span> Porcelain <span class="terminal-muted">light &amp; grounded</span></p><p><span class="terminal-success">✓</span> Nocturne <span class="terminal-muted">dark &amp; cool</span></p></div>
+            <p><span class="terminal-success">Contrast audit passed.</span> <span class="terminal-muted">/ 3 flavours</span></p>
             <p class="terminal-last"><span class="terminal-prompt">❯</span> <span class="code-caret" aria-hidden="true"></span></p>
           </div>
         </div>
 
         <div class="preview-panel interface-panel" id="preview-interface" role="tabpanel" aria-labelledby="tab-interface" tabindex="0" hidden>
-          <div class="interface-sidebar" aria-hidden="true"><span class="interface-avatar">s.</span><span>⌂</span><span class="interface-selected">▦</span><span>☷</span><span class="interface-sidebar-last">⚙</span></div>
+          <div class="interface-sidebar" aria-hidden="true"><span class="interface-avatar">c.</span><span>⌂</span><span class="interface-selected">▦</span><span>☷</span><span class="interface-sidebar-last">⚙</span></div>
           <div class="interface-main">
-            <div class="interface-breadcrumb">Studio <span>/</span> Overview <span class="interface-user">J</span></div>
-            <div class="interface-heading"><div><span class="eyebrow">YOUR SPACE</span><h3>A fresh perspective.</h3></div><span class="demo-button">＋ New idea</span></div>
-            <div class="interface-stats"><div><span>In progress</span><strong>04 <i class="tiny-status"></i></strong></div><div><span>Ideas captured</span><strong>12 <span class="stat-small">this week</span></strong></div></div>
-            <div class="interface-task"><span class="task-check" aria-hidden="true">✓</span><span>Find a little clarity</span><span class="status-pill success">Complete</span></div>
-            <div class="interface-task"><span class="task-check empty" aria-hidden="true"></span><span>Make something meaningful</span><span class="status-pill warning">In progress</span></div>
-            <div class="interface-note"><span aria-hidden="true">✳</span><span>Good things start with a little space.</span></div>
+            <div class="interface-breadcrumb">Cygma <span>/</span> Themes <span class="interface-user">C</span></div>
+            <div class="interface-heading"><div><span class="eyebrow">THEME PREVIEW</span><h3>A shared palette.</h3></div><span class="demo-button">＋ Add colour</span></div>
+            <div class="interface-stats"><div><span>Flavours</span><strong>03 <i class="tiny-status"></i></strong></div><div><span>App installers</span><strong>08 <span class="stat-small">Windows / Linux</span></strong></div></div>
+            <div class="interface-task"><span class="task-check" aria-hidden="true">✓</span><span>Semantic colour tokens</span><span class="status-pill success">Ready</span></div>
+            <div class="interface-task"><span class="task-check empty" aria-hidden="true"></span><span>Choose your flavour</span><span class="status-pill warning">Preview</span></div>
+            <div class="interface-note"><span aria-hidden="true">✳</span><span>One colour language across your tools.</span></div>
           </div>
         </div>
         <div class="workbench-status"><span><span class="branch-icon" aria-hidden="true">⑂</span> main <span class="status-count">0 errors &nbsp; 0 warnings</span></span><span><span data-current-name>Ember</span> <span class="status-dot" aria-hidden="true"></span></span></div>
@@ -132,7 +137,7 @@
         <div class="install-heading"><div><h2 id="install-title">Your tools.<br>A familiar feeling.</h2><p>Bring <strong data-current-name>Ember</strong> to the places you spend your day.</p></div><label class="os-label" for="platform">Your operating system<select id="platform"><option value="windows">Windows</option><option value="linux">Linux</option></select></label></div>
         <div class="installation-start"><span class="step-number">1</span><p><a href="downloads/cygma-themes.zip" download>Download the collection <span aria-hidden="true">↓</span></a><span>Extract the ZIP, then open a terminal in the extracted folder.</span></p><span class="archive-type">ZIP / ALL FLAVOURS</span></div>
         <div class="install-grid" id="install-grid"></div>
-        <div class="install-help"><span class="step-number">2</span><p>The commands install theme files from the extracted collection. Select your Cygma flavour in your app afterwards. Python 3.10+ is required; Windows commands use the included PowerShell wrapper.</p></div>
+        <div class="install-help"><span class="step-number">2</span><p>The commands install theme files from the extracted collection. Select your Cygma flavour in your app afterwards. Python 3.10+ is required; Windows commands use the included PowerShell wrapper. <a href="https://github.com/cygma-audio/cygma-themes/blob/main/docs/INSTALL.md">Read the installation guide.</a></p></div>
         <p class="platform-note" id="platform-note"></p>
         <noscript><p class="noscript-notice">Enable JavaScript for interactive previews and installation commands. You can still <a href="downloads/cygma-themes.zip" download>download the complete collection</a> and follow its installation guide.</p></noscript>
       </div>
@@ -140,7 +145,7 @@
 
     <section class="closing shell" aria-label="Download Cygma Themes"><div class="closing-symbol" aria-hidden="true"><img src="assets/cygma-symbol.svg" alt="" width="96" height="96"></div><p>A small change.<br>A space that feels <em>yours.</em></p><a class="button button-primary" href="downloads/cygma-themes.zip" download>Make it your own <span aria-hidden="true">↓</span></a></section>
   </main>
-  <footer class="site-footer shell"><a class="brand" href="#" aria-label="Cygma Themes home"><img src="assets/cygma-symbol.svg" alt="" width="24" height="24"><span>cygma<span class="brand-divider">/</span><span class="brand-product">themes</span></span></a><p>Considered colour. Room to think.</p><a href="downloads/cygma-themes.zip" download>Download collection <span aria-hidden="true">↗</span></a></footer>
+  <footer class="site-footer shell"><a class="brand" href="./" aria-label="Cygma Themes home"><img src="assets/cygma-symbol.svg" alt="" width="24" height="24"><span>cygma<span class="brand-divider">/</span><span class="brand-product">themes</span></span></a><p>Colour themes by Cygma Audio.</p><a href="https://github.com/cygma-audio/cygma-themes">Source on GitHub <span aria-hidden="true">↗</span></a></footer>
   <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
   <p id="theme-status" class="visually-hidden" role="status" aria-live="polite"></p>
 </body>

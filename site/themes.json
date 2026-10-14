@@ -4,7 +4,7 @@
     "ember": {
       "name": "Ember",
       "appearance": "dark",
-      "description": "Warm graphite, soft off-white and a clear apricot-orange signal. The primary Cygma Audio and Tessel expression.",
+      "description": "Warm graphite, soft off-white and a clear apricot-orange signal. The primary Cygma Audio palette.",
       "tokens": {
         "surface.canvas": "#171615",
         "surface.panel": "#211F1D",
